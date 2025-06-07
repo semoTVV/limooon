@@ -26,27 +26,39 @@
 
             <div class="upgrades">
                 <div class="upgrade">
-                    <h3>Limonata Şişesi</h3>
-                    <p>Ücret: <span id="bottleCost">100</span> TL</p>
-                    <p>Gelir: 10 TL/saniye</p>
-                    <button onclick="buyBottle()">Satın Al</button>
-                    <p>Sayısı: <span id="bottleCount">0</span></p>
+                    <div class="upgrade-header">
+                        <h3>Limonata Şişesi</h3>
+                        <p class="upgrade-count">Sayısı: <span id="bottleCount">0</span></p>
+                    </div>
+                    <div class="upgrade-details">
+                        <p>Ücret: <span id="bottleCost">100</span> TL</p>
+                        <p>Gelir: 10 TL/saniye</p>
+                    </div>
+                    <button onclick="buyBottle()" class="upgrade-button">Satın Al</button>
                 </div>
 
                 <div class="upgrade">
-                    <h3>Limonata Makinesi</h3>
-                    <p>Ücret: <span id="machineCost">1000</span> TL</p>
-                    <p>Gelir: 100 TL/saniye</p>
-                    <button onclick="buyMachine()">Satın Al</button>
-                    <p>Sayısı: <span id="machineCount">0</span></p>
+                    <div class="upgrade-header">
+                        <h3>Limonata Makinesi</h3>
+                        <p class="upgrade-count">Sayısı: <span id="machineCount">0</span></p>
+                    </div>
+                    <div class="upgrade-details">
+                        <p>Ücret: <span id="machineCost">1000</span> TL</p>
+                        <p>Gelir: 100 TL/saniye</p>
+                    </div>
+                    <button onclick="buyMachine()" class="upgrade-button">Satın Al</button>
                 </div>
 
                 <div class="upgrade">
-                    <h3>Fabrika</h3>
-                    <p>Ücret: <span id="factoryCost">10000</span> TL</p>
-                    <p>Gelir: 1000 TL/saniye</p>
-                    <button onclick="buyFactory()">Satın Al</button>
-                    <p>Sayısı: <span id="factoryCount">0</span></p>
+                    <div class="upgrade-header">
+                        <h3>Fabrika</h3>
+                        <p class="upgrade-count">Sayısı: <span id="factoryCount">0</span></p>
+                    </div>
+                    <div class="upgrade-details">
+                        <p>Ücret: <span id="factoryCost">10000</span> TL</p>
+                        <p>Gelir: 1000 TL/saniye</p>
+                    </div>
+                    <button onclick="buyFactory()" class="upgrade-button">Satın Al</button>
                 </div>
             </div>
         </div>
