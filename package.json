@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "dev": "echo \"No dev server needed for static HTML site\"",
-    "build": "./build.sh"
+    "build": "echo \"No build needed for static HTML site\""
   },
   "keywords": [
     "oyun",
@@ -15,8 +15,5 @@
     "fabrika"
   ],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@vercel/static-build": "^1.0.0"
-  }
+  "license": "ISC"
 }
