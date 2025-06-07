@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerçek Zamanlı Sohbet</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { margin: 0; font-family: sans-serif; background-color: #f4f4f4; display: flex; flex-direction: column; align-items: center; }
+        #message-container { width: 80%; max-width: 600px; margin-top: 20px; padding: 15px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); height: 300px; overflow-y: scroll; }
+        .message { padding: 10px; border-bottom: 1px solid #eee; }
+        .message:last-child { border-bottom: none; }
+        #input-area { width: 80%; max-width: 600px; margin-top: 10px; display: flex; }
+        #message-input { flex-grow: 1; padding: 10px; border: 1px solid #ccc; border-radius: 5px 0 0 5px; font-size: 16px; }
+        #send-button { padding: 10px 15px; background-color: #5cb85c; color: white; border: none; border-radius: 0 5px 5px 0; cursor: pointer; font-size: 16px; }
+        #send-button:hover { background-color: #4cae4c; }
+        .username { font-weight: bold; margin-right: 5px; color: #337ab7; }
+    </style>
+</head>
+<body>
+    <div id="message-container">
+        </div>
+    <div id="input-area">
+        <input type="text" id="message-input" placeholder="Mesajınızı yazın...">
+        <button id="send-button">Gönder</button>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"></script>
+
+    <script>
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "firebase/app";
+      import { getAnalytics } from "firebase/analytics";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyAzcFInq-vm4tMYn0lT_J9khd4kHVhYN0M",
+        authDomain: "ileti-f9834.firebaseapp.com",
+        databaseURL: "https://ileti-f9834-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "ileti-f9834",
+        storageBucket: "ileti-f9834.firebasestorage.app",
+        messagingSenderId: "933686769265",
+        appId: "1:933686769265:web:54cea67b0256d2e05a8dd0",
+        measurementId: "G-MVS8N6YZTY"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+
+      const database = firebase.database();
+      const messagesRef = database.ref('messages');
+      const messageInput = document.getElementById('message-input');
+      const sendButton = document.getElementById('send-button');
+      const messageContainer = document.getElementById('message-container');
+      const username = 'semihcagis'; // Şimdilik statik bir kullanıcı adı
+
+      sendButton.addEventListener('click', () => {
+          const messageText = messageInput.value.trim();
+          if (messageText) {
+              messagesRef.push({
+                  user: username,
+                  text: messageText
+              });
+              messageInput.value = '';
+          }
+      });
+
+      messagesRef.on('child_added', (snapshot) => {
+          const message = snapshot.val();
+          const messageDiv = document.createElement('div');
+          messageDiv.classList.add('message');
+          messageDiv.innerHTML = `<span class="username">${message.user}:</span> ${message.text}`;
+          messageContainer.appendChild(messageDiv);
+          messageContainer.scrollTop = messageContainer.scrollHeight;
+      });
+    </script>
+</body>
+</html>
