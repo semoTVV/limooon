@@ -2,11 +2,6 @@
   "name": "limonata-fabrikasi",
   "version": "1.0.0",
   "description": "Limonata Fabrikası - Tıklama Oyunu",
-  "main": "index.html",
-  "scripts": {
-    "dev": "echo \"No dev server needed for static HTML site\"",
-    "build": "echo \"No build needed for static HTML site\""
-  },
   "keywords": [
     "oyun",
     "clicker",
