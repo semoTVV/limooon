@@ -4,8 +4,8 @@
   "description": "Limonata Fabrikası - Tıklama Oyunu",
   "main": "index.html",
   "scripts": {
-    "dev": "vercel dev",
-    "build": "vercel build"
+    "dev": "echo \"No dev server needed for static HTML site\"",
+    "build": "echo \"No build needed for static HTML site\""
   },
   "keywords": [
     "oyun",
@@ -15,8 +15,5 @@
     "fabrika"
   ],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@vercel/static-build": "^1.0.0"
-  }
+  "license": "ISC"
 }
