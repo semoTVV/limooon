@@ -1,0 +1,22 @@
+{
+  "name": "limonata-fabrikasi",
+  "version": "1.0.0",
+  "description": "Limonata Fabrikası - Tıklama Oyunu",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "vercel build"
+  },
+  "keywords": [
+    "oyun",
+    "clicker",
+    "idle",
+    "limonata",
+    "fabrika"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/static-build": "^1.0.0"
+  }
+}
